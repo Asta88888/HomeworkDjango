@@ -1,0 +1,41 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "product_name": "Блеск для губ",
+        "product_description": "С эффектом жидкого стекла, нейтральный аромат",
+        "product_image": "",
+        "category": 4,
+        "product_price": 1500.0,
+        "created_at": "2025-06-13",
+        "updated_at": "2025-06-13"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+        "product_name": "Сыворотка для лица",
+        "product_description": "С эффектом омоложения, сглаживающая морщинки",
+        "product_image": "",
+        "category": 5,
+        "product_price": 1000.0,
+        "created_at": "2025-06-13",
+        "updated_at": "2025-06-13"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+        "product_name": "Энзимная пудра",
+        "product_description": "Нежное очищение пор, противовоспалительное действие",
+        "product_image": "",
+        "category": 5,
+        "product_price": 2000.0,
+        "created_at": "2025-06-13",
+        "updated_at": "2025-06-13"
+    }
+}
+]
