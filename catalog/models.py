@@ -5,8 +5,10 @@ class Category(models.Model):
     category_name = models.CharField(max_length=150, verbose_name='Наименование')
     category_description = models.TextField(max_length=500, verbose_name='Описание')
 
+
     def __str__(self):
         return self.category_name
+
 
     class Meta:
         verbose_name = 'Категория'
@@ -23,8 +25,10 @@ class Product(models.Model):
     created_at = models.DateField(auto_now_add=True, verbose_name='Создано')
     updated_at = models.DateField(auto_now=True, verbose_name='Обновлено')
 
+
     def __str__(self):
         return self.product_name
+
 
     class Meta:
         verbose_name = 'Продукт'
