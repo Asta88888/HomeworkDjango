@@ -4,9 +4,16 @@
 
 {% block content %}
 
-<h2>Детали продукта
-</h2>
+<h2>Детали продукта</h2>
 
-</ul>
+<div class="card" style="width: 18rem;">
+  <img src="{{ product.product_image }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.product_name }}</h5>
+    <p class="card-text">{{ product.product_description }}. {{ product.category }}. Цена: {{ product.product_price }}</p>
+    <a href="#" class="btn btn-primary">Вернуться назад</a>
+  </div>
+</div>
+
 {% endblock %}
 

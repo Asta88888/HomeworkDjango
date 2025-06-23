@@ -5,11 +5,20 @@
 {% block content %}
 
 <h2>Список продуктов</h2>
-<ul class="list-group">
+
+<div class="d-flex flex-wrap gap-4">
     {% for product in products %}
-        <li class="list-group-item">
-            {{ product.product_name }} - {{ product.product_description }} - {{ product.category }} - {{ product.price }}
-        </li>
+    <div class="card" style="width: 18rem;">
+      <img src="{{ product.product_image.url }}" class="card-img-top" alt="{{ product.product_name }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.product_name }}</h5>
+            <p class="card-text">{{ product.product_description }}. {{ product.category }}. Цена: {{ product.product_price }}</p>
+            <div class="mt-auto">
+                <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-primary">Подробнее о продукте</a>
+            </div>
+        </div>
+    </div>
     {% endfor %}
-</ul>
+</div>
+
 {% endblock %}
