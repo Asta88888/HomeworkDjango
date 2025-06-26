@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Детали продукта{% endblock %}
+
+{% block content %}
+{% include 'header.html' %}
+<h2>Детали продукта</h2>
+
+<div class="card" style="width: 18rem;">
+  <img src="{{ product.product_image.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.product_name }}</h5>
+    <p class="card-text">{{ product.product_description }}. {{ product.category }}. Цена: {{ product.product_price }}</p>
+    <a href="/" class="btn btn-primary">Вернуться назад</a>
+  </div>
+</div>
+
+{% endblock %}
+
