@@ -23,13 +23,13 @@ class PostDetailView(DetailView):
 
 class PostCreateView(CreateView):
     model = Post
-    fields = ['title', 'content', 'preview']
+    fields = ['title', 'content', 'preview', 'publication_flag']
     success_url = reverse_lazy('blog:post_list')
 
 
 class PostUpdateView(UpdateView):
     model = Post
-    fields = ['title', 'content', 'preview']
+    fields = ['title', 'content', 'preview', 'publication_flag']
     success_url = reverse_lazy('blog:post_list')
 
     def get_success_url(self):
