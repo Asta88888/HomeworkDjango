@@ -1,5 +1,3 @@
-from django.core.files.images import get_image_dimensions
-
 from django.forms import ModelForm
 from catalog.models import Product
 from django.core.exceptions import ValidationError
