@@ -73,7 +73,7 @@ class ProductForm(ModelForm):
         if image:
             if image.size > MAX_IMAGE_SIZE * 1024 * 1024:
                 raise ValidationError(f'Размер изображения не должен превышать {MAX_IMAGE_SIZE}')
-            content_type = image.file.content_type
-            if content_type not in ['jpeg','png']:
+            content_type = image.content_type
+            if content_type not in ['image/jpeg','image/png']:
                 raise ValidationError('Допустимые форматы изображения: JPEG и PNG')
         return image
