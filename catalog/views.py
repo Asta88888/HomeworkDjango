@@ -58,3 +58,13 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
 
 def contacts(request):
     return render(request, 'catalog/contacts.html')
+
+
+class ProductUnpublishView(LoginRequiredMixin, PermissionRequiredMixin, View):
+    permission_required = 'catalog.can_unpublish_product'
+
+    def post(self, request, pk):
+        product = get_object_or_404(Product, pk=pk)
+        product.publication_flag = False
+        product.save()
+        return redirect('catalog:product_detail', pk=pk)
