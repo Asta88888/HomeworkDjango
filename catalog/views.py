@@ -39,7 +39,7 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
 
     def form_valid(self, form):
         product = form.instance
-        if not (product.owner == self.request.user or self.request.user.has_perm('catalog.update_product')):
+        if product.owner != self.request.user:
             return HttpResponseForbidden("Нет прав на редактирование.")
         return super().form_valid(form)
 
@@ -49,11 +49,11 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
     success_url = reverse_lazy('catalog:product_list')
     permission_required = 'catalog.delete_product'
 
-    def form_valid(self, form):
-        product = form.instance
-        if not (product.owner == self.request.user or self.request.user.has_perm('catalog.delete_product')):
+    def delete(self, request, *args, **kwargs):
+        product = self.get_object()
+        if not (product.owner == request.user or request.user.has_perm('catalog.delete_product')):
             return HttpResponseForbidden("Нет прав на удаление.")
-        return super().form_valid(form)
+        return super().delete(request, *args, **kwargs)
 
 
 def contacts(request):
