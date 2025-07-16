@@ -81,8 +81,8 @@ class CategoryListView(ListView):
 
 
 class CategoryDetailView(DetailView):
-    model = Product
+    model = Category
 
     def get_queryset(self):
-        pk = Category.objects.get('category_id')
+        pk = self.objects.id
         return get_products_by_category(pk)
