@@ -15,5 +15,5 @@ def get_products_from_cache():
     return products
 
 
-def get_products_by_category():
-    pass
+def get_products_by_category(pk):
+    return Product.objects.filter(pk=pk)

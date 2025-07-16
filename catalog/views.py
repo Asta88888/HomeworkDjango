@@ -78,3 +78,11 @@ class ProductUnpublishView(LoginRequiredMixin, PermissionRequiredMixin, View):
 
 class CategoryListView(ListView):
     model = Category
+
+
+class CategoryDetailView(DetailView):
+    model = Product
+
+    def get_queryset(self):
+        pk = Category.objects.get('category_id')
+        return get_products_by_category(pk)
