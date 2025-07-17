@@ -80,9 +80,9 @@ class CategoryListView(ListView):
     model = Category
 
 
-class CategoryDetailView(DetailView):
+class CategoryDetailView(ListView):
     model = Category
 
     def get_queryset(self):
-        pk = self.objects.id
+        pk = self.kwargs.get("pk")
         return get_products_by_category(pk)
