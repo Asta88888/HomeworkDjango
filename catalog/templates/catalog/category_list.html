@@ -1,0 +1,21 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Список категорий{% endblock %}
+
+{% block content %}
+{% include 'catalog/header.html' %}
+<h2>Список категорий</h2>
+
+<div class="d-flex flex-wrap gap-4 mt-5">
+    {% for category in object_list %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ category.category_name }}</h5>
+            <p class="card-text">{{ category.category_description | truncatechars:100 }}</p>
+        </div>
+        <a href="{% url 'catalog:category_detail' category.pk %}" class="btn btn-primary mb-2">Показать продукты</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
